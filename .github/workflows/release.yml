@@ -1,17 +1,17 @@
 name: Release
 
 on:
-    workflow_dispatch:
-      inputs:
-        bumpType:
-          description: "Bump Type"
-          required: true
-          type: choice
-          default: patch
-          options: 
-            - patch
-            - minor
-            - major
+  workflow_dispatch:
+    inputs:
+      bumpType:
+        description: "Bump Type"
+        required: true
+        type: choice
+        default: patch
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   release-version:
@@ -63,7 +63,7 @@ jobs:
       - name: Installation instructions
         id: installation
         run: |
-          src/.github/workflows/release/scripts/installation-code.sh "https://github.com/theothertomelliott/bazel-terraform-rules/releases/download/${{steps.tag_version.outputs.new_tag}}/bazel-terraform-rules-${{steps.tag_version.outputs.new_tag}}.tar.gz" ${{steps.tar.outputs.SRC_SHA256}} > instructions.txt
+          src/.github/workflows/release/scripts/installation-code.sh "https://github.com/nikore/bazel-terraform-rules/releases/download/${{steps.tag_version.outputs.new_tag}}/bazel-terraform-rules-${{steps.tag_version.outputs.new_tag}}.tar.gz" ${{steps.tar.outputs.SRC_SHA256}} > instructions.txt
       - name: "Read Load instructions into variable"
         id: instructions
         uses: andstor/file-reader-action@v1
@@ -72,7 +72,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v0.1.14
         with:
-          files: bazel-terraform-rules-${{steps.tag_version.outputs.new_tag}}.tar.gz 
+          files: bazel-terraform-rules-${{steps.tag_version.outputs.new_tag}}.tar.gz
           tag_name: "${{steps.tag_version.outputs.new_tag}}"
           body: |
             # Adding to your Workspace
