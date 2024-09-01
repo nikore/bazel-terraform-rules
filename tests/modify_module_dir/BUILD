@@ -10,8 +10,8 @@ terraform_module(
 
 terraform_working_directory(
     name = "terraform",
-    module = ":provider",
     allow_provider_download = True,
+    module = ":provider",
 )
 
 execute_test(

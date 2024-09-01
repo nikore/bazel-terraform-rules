@@ -9,8 +9,8 @@ terraform_module(
 
 terraform_working_directory(
     name = "terraform",
-    module = ":provider",
     allow_provider_download = True,
+    module = ":provider",
 )
 
 sh_test(
@@ -19,4 +19,3 @@ sh_test(
     srcs = ["test.sh"],
     data = [":terraform"],
 )
-

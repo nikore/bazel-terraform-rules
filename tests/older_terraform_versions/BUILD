@@ -7,7 +7,22 @@ terraform_module(
     visibility = ["//visibility:public"],
 )
 
-test_terraform_version(name="terraform", terraform="@terraform_default//:terraform_executable")
-test_terraform_version(name="terraform_0_12", terraform="@terraform_0.12.24//:terraform_executable")
-test_terraform_version(name="terraform_0_13", terraform="@terraform_0.13.7//:terraform_executable")
-test_terraform_version(name="terraform_0_14", terraform="@terraform_0.14.11//:terraform_executable")
+test_terraform_version(
+    name = "terraform",
+    terraform = "@terraform_default//:terraform_executable",
+)
+
+test_terraform_version(
+    name = "terraform_0_12",
+    terraform = "@terraform_0.12.24//:terraform_executable",
+)
+
+test_terraform_version(
+    name = "terraform_0_13",
+    terraform = "@terraform_0.13.7//:terraform_executable",
+)
+
+test_terraform_version(
+    name = "terraform_0_14",
+    terraform = "@terraform_0.14.11//:terraform_executable",
+)

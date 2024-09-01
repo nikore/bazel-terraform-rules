@@ -22,4 +22,3 @@ sh_test(
     srcs = ["test.sh"],
     data = [":terraform"],
 )
-
