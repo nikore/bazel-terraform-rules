@@ -108,6 +108,7 @@ def _impl(ctx):
     )
     
     files = ctx.path(".").readdir()
+    files = [file for file in files if not file.startswith("LICENSE")]
     if len(files) != 1:
         fail("Expected exactly one file in {}, got {}", ctx.attr.url_by_platform[platform], len(files))
 
